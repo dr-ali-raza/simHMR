@@ -1,0 +1,11 @@
+function dydt = diff_DynRot(t,q)
+r=1;
+Ic = 0.08;
+Imw = 0.02;
+Iw = 0.02;
+B = [0;4];
+T = 1;
+S = [r; 1];
+M = S'*[Ic+4*Imw 0;0 4*Iw]*S;
+qdot2 = [q(3); B*T/M];
+dydt = qdot2;
